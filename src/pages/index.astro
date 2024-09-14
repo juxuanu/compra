@@ -1,16 +1,44 @@
 ---
+import Base from "../layouts/Base.astro";
+import { getAllQueviures } from "../db/operations";
+import { actions } from "astro:actions";
+import Queviure from "../components/Queviure.astro";
+import { PlusSquare } from "lucide-astro";
 
+const queviures = await getAllQueviures();
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Base>
+  <h1 class="text-lg font-bold mt-2 mb-4 w-full text-center uppercase">
+    Cuqui compra
+  </h1>
+  <main class="text-xl">
+    <ul class="flex flex-col mb-2">
+      {
+        queviures.map((queviure) => (
+          <li class="pt-1 pb-0.5 border-b border-gray-700">
+            <Queviure nom={queviure.nom} />
+          </li>
+        ))
+      }
+    </ul>
+    <form
+      action={actions.desaQueviure}
+      method="POST"
+      class="w-full flex flex-row justify-between"
+    >
+      <label class="flex flex-row gap-2 w-fit">
+        <input
+          type="text"
+          minlength="1"
+          name="nom"
+          required
+          class="text-gray-900 bg-gray-300 px-1"
+        />
+      </label>
+      <button type="submit" class="text-green-300"
+        ><PlusSquare class="size-8" /></button
+      >
+    </form>
+  </main>
+</Base>

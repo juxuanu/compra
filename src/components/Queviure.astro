@@ -1,0 +1,23 @@
+---
+import { Trash } from "lucide-astro";
+import { actions } from "astro:actions";
+
+interface Props {
+  nom: string;
+}
+const { nom } = Astro.props;
+---
+
+<div class="w-full h-fit flex flex-row justify-between">
+  <span>{nom}</span>
+  <form action={actions.borraQueviure} method="POST">
+    <label>
+      <input hidden name="nom" required value={nom} />
+    </label>
+    <button
+      type="submit"
+      class="text-red-500 h-full flex flex-col justify-center"
+      ><Trash class="size-8" />
+    </button>
+  </form>
+</div>
