@@ -7,7 +7,6 @@ import {
 import { eq } from "drizzle-orm";
 
 export async function getAllQueviures(): Promise<QueviuresSelect[]> {
-  console.info("get all queviures");
   return db.select().from(queviuresTable).orderBy(queviuresTable.dataCreacio);
 }
 
