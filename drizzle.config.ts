@@ -5,10 +5,8 @@ if (process.env.DEV) {
   config({ path: ".env" });
 }
 
-const url =
-  import.meta.env.TURSO_DATABASE_URL ?? process.env.TURSO_DATABASE_URL!;
-const authToken =
-  import.meta.env.TURSO_AUTH_TOKEN ?? process.env.TURSO_AUTH_TOKEN!;
+const url = process.env.TURSO_DATABASE_URL!;
+const authToken = process.env.TURSO_AUTH_TOKEN!;
 
 export default defineConfig({
   schema: "./src/db/schemas.ts",
