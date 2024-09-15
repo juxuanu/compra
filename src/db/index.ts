@@ -12,4 +12,6 @@ console.info(!!url, !!authToken);
 
 const client = createClient({ url, authToken });
 
+console.info("client created");
+
 export const db = drizzle(client, { schema: schemas });
