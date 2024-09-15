@@ -1,9 +1,11 @@
-import { config } from "dotenv";
 import { drizzle } from "drizzle-orm/libsql";
 import { createClient } from "@libsql/client";
 import * as schemas from "./schemas.ts";
 
-config({ path: ".env" });
+if (import.meta.env.DEV) {
+  const dotenv = await import("dotenv");
+  dotenv.config({ path: ".env" });
+}
 
 const client = createClient({
   url: process.env.TURSO_DATABASE_URL!,
