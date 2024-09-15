@@ -3,7 +3,7 @@ import { createClient } from "@libsql/client";
 import * as schemas from "./schemas.ts";
 import { config } from "dotenv";
 
-if (import.meta.env.DEV) {
+if (process.env.DEV) {
   config({ path: ".env" });
 }
 

@@ -1,7 +1,7 @@
 import { defineConfig } from "drizzle-kit";
 import { config } from "dotenv";
 
-if (import.meta.env.DEV) {
+if (process.env.DEV) {
   config({ path: ".env" });
 }
 
