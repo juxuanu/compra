@@ -6,7 +6,7 @@ export const server = {
   desaQueviure: defineAction({
     accept: "form",
     input: z.object({
-      nom: z.string().min(1),
+      nom: z.string().min(1).trim(),
     }),
     handler: async (input) => {
       await putQueviure(input);
@@ -19,7 +19,6 @@ export const server = {
       nom: z.string().min(1),
     }),
     handler: async (input) => {
-      console.debug("borrar queviure", input);
       await borraQueviure(input.nom);
     },
   }),
