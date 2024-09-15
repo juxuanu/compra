@@ -1,10 +1,10 @@
 import { drizzle } from "drizzle-orm/libsql";
 import { createClient } from "@libsql/client";
 import * as schemas from "./schemas.ts";
+import { config } from "dotenv";
 
 if (import.meta.env.DEV) {
-  const dotenv = await import("dotenv");
-  dotenv.config({ path: ".env" });
+  config({ path: ".env" });
 }
 
 const client = createClient({
