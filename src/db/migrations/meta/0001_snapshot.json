@@ -1,0 +1,41 @@
+{
+  "version": "6",
+  "dialect": "sqlite",
+  "id": "8045429c-8eee-4440-acf0-3aa3b0b8383a",
+  "prevId": "7d9096f3-72af-42a4-b6ae-3e2cb2ad02fd",
+  "tables": {
+    "queviures": {
+      "name": "queviures",
+      "columns": {
+        "nom": {
+          "name": "nom",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true,
+          "autoincrement": false
+        },
+        "data_creacio": {
+          "name": "data_creacio",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "autoincrement": false,
+          "default": "(unixepoch() * 1000)"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "indexes": {}
+  }
+}

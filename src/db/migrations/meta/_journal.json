@@ -8,6 +8,13 @@
       "when": 1726352653788,
       "tag": "0000_mysterious_sumo",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1726361024951,
+      "tag": "0001_normal_rockslide",
+      "breakpoints": true
     }
   ]
 }

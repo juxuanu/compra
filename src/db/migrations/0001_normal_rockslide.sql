@@ -1,0 +1,1 @@
+ALTER TABLE `queviures` ADD `data_creacio` integer DEFAULT (unixepoch() * 1000) NOT NULL;
