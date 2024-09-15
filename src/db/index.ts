@@ -12,8 +12,8 @@ const url =
 const authToken =
   import.meta.env.TURSO_AUTH_TOKEN ?? process.env.TURSO_AUTH_TOKEN!;
 
-console.info("TURSO_DATABASE_URL defined", !!url);
-console.info("TURSO_AUTH_TOKEN", !!authToken);
+console.info("TURSO_DATABASE_URL", url);
+console.info("TURSO_AUTH_TOKEN", authToken);
 
 const client = createClient({ url, authToken });
 
