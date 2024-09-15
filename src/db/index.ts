@@ -1,5 +1,5 @@
 import { drizzle } from "drizzle-orm/libsql";
-import { createClient } from "@libsql/client";
+import { createClient } from "@libsql/client/web";
 import * as schemas from "./schemas.ts";
 import { config } from "dotenv";
 
