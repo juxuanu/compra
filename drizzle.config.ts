@@ -1,7 +1,7 @@
 import { defineConfig } from "drizzle-kit";
 import { config } from "dotenv";
 
-if (process.env.DEV) {
+if (import.meta.env.DEV ?? process.env.DEV) {
   config({ path: ".env" });
 }
 
@@ -11,7 +11,8 @@ export default defineConfig({
   dialect: "sqlite",
   driver: "turso",
   dbCredentials: {
-    url: process.env.TURSO_DATABASE_URL!,
-    authToken: process.env.TURSO_AUTH_TOKEN!,
+    url: import.meta.env.TURSO_DATABASE_URL ?? process.env.TURSO_DATABASE_URL!,
+    authToken:
+      import.meta.env.TURSO_AUTH_TOKEN ?? process.env.TURSO_AUTH_TOKEN!,
   },
 });
