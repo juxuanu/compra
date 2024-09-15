@@ -12,4 +12,9 @@ export default defineConfig({
   adapter: cloudflare({
     imageService: "compile",
   }),
+  vite: {
+    define: {
+      "process.env": process.env,
+    },
+  },
 });
