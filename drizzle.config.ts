@@ -1,12 +1,10 @@
 import { defineConfig } from "drizzle-kit";
-
-const url = process.env.TURSO_DATABASE_URL!;
-const authToken = process.env.TURSO_AUTH_TOKEN!;
+import { TURSO_DATABASE_URL, TURSO_AUTH_TOKEN } from "astro:env/server";
 
 export default defineConfig({
   schema: "./src/db/schemas.ts",
   out: "./src/db/migrations",
   dialect: "sqlite",
   driver: "turso",
-  dbCredentials: { url, authToken },
+  dbCredentials: { url: TURSO_DATABASE_URL, authToken: TURSO_AUTH_TOKEN },
 });
