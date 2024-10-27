@@ -6,7 +6,7 @@ export const server = {
   desaQueviure: defineAction({
     accept: "form",
     input: z.object({
-      nom: z.string().min(1).trim(),
+      nom: z.string().trim().min(1),
     }),
     handler: async (input) => {
       await putQueviure(input);
