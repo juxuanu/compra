@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
   "name": "La Compra",
   "short_name": "compra",
   "theme_color": "#000000",
@@ -10,8 +11,9 @@
       "type": "image/png"
     }
   ],
-  "display": "browser",
+  "display": "standalone",
   "orientation": "portrait",
   "scope": "/",
-  "start_url": "/"
+  "start_url": "/",
+  "lang": "ca"
 }
