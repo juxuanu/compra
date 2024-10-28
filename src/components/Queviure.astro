@@ -1,5 +1,5 @@
 ---
-import { Delete } from "lucide-astro";
+import { ListX } from "lucide-astro";
 import { actions } from "astro:actions";
 
 interface Props {
@@ -15,7 +15,7 @@ const { nom } = Astro.props;
       <input hidden name="nom" required value={nom} />
     </label>
     <button type="submit" class="text-red-500 my-auto">
-      <Delete class="size-8 stroke-1" />
+      <ListX class="size-8 stroke-1" />
     </button>
   </form>
 </div>

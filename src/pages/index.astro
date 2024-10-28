@@ -3,7 +3,7 @@ import Base from "../layouts/Base.astro";
 import { getAllQueviures } from "../db/operations";
 import { actions } from "astro:actions";
 import Queviure from "../components/Queviure.astro";
-import { PlusCircle } from "lucide-astro";
+import { ListPlus } from "lucide-astro";
 
 const queviures = await getAllQueviures();
 ---
@@ -38,7 +38,7 @@ const queviures = await getAllQueviures();
         />
       </label>
       <button type="submit" id="add-queviure" class="text-green-300">
-        <PlusCircle class="size-8 stroke-1" />
+        <ListPlus class="size-8 stroke-1" />
       </button>
     </form>
   </main>
