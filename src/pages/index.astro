@@ -25,16 +25,16 @@ const queviures = await getAllQueviures();
     <form
       action={actions.desaQueviure}
       method="POST"
-      class="w-full flex flex-row justify-between"
+      class="flex flex-row justify-between"
     >
-      <label>
+      <label class="w-full mr-4">
         <input
           type="text"
           minlength="1"
           name="nom"
           required
           autocapitalize="sentences"
-          class="text-gray-900 bg-gray-300 px-1"
+          class="text-gray-900 bg-gray-300 px-1 h-full w-full"
         />
       </label>
       <button type="submit" class="text-green-300">
