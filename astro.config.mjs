@@ -17,6 +17,9 @@ export default defineConfig({
       "process.env": process.env,
     },
   },
+  devToolbar: {
+    enabled: false,
+  },
   experimental: {
     env: {
       schema: {

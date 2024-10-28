@@ -3,7 +3,7 @@ import Base from "../layouts/Base.astro";
 import { getAllQueviures } from "../db/operations";
 import { actions } from "astro:actions";
 import Queviure from "../components/Queviure.astro";
-import { PlusSquare } from "lucide-astro";
+import { PlusCircle } from "lucide-astro";
 
 const queviures = await getAllQueviures();
 ---
@@ -27,18 +27,18 @@ const queviures = await getAllQueviures();
       method="POST"
       class="flex flex-row justify-between"
     >
-      <label class="w-full mr-4">
+      <label for="add-queviure" class="w-full mr-4">
         <input
           type="text"
           minlength="1"
           name="nom"
           required
           autocapitalize="sentences"
-          class="text-gray-900 bg-gray-300 px-1 h-full w-full"
+          class="text-gray-900 bg-gray-300 px-1 h-full w-full rounded-sm"
         />
       </label>
-      <button type="submit" class="text-green-300">
-        <PlusSquare class="size-8" />
+      <button type="submit" id="add-queviure" class="text-green-300">
+        <PlusCircle class="size-8 stroke-1" />
       </button>
     </form>
   </main>

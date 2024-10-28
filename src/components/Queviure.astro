@@ -1,5 +1,5 @@
 ---
-import { Trash } from "lucide-astro";
+import { Delete } from "lucide-astro";
 import { actions } from "astro:actions";
 
 interface Props {
@@ -14,8 +14,8 @@ const { nom } = Astro.props;
     <label>
       <input hidden name="nom" required value={nom} />
     </label>
-    <button type="submit" class="text-red-500">
-      <Trash class="size-8" />
+    <button type="submit" class="text-red-500 my-auto">
+      <Delete class="size-8 stroke-1" />
     </button>
   </form>
 </div>
