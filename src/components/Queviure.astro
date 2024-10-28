@@ -14,10 +14,8 @@ const { nom } = Astro.props;
     <label>
       <input hidden name="nom" required value={nom} />
     </label>
-    <button
-      type="submit"
-      class="text-red-500 h-full flex flex-col justify-center"
-      ><Trash class="size-8" />
+    <button type="submit" class="text-red-500">
+      <Trash class="size-8" />
     </button>
   </form>
 </div>

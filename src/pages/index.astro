@@ -13,10 +13,10 @@ const queviures = await getAllQueviures();
     Cuqui compra
   </h1>
   <main class="text-xl">
-    <ul class="flex flex-col mb-2">
+    <ul class="flex flex-col mb-1">
       {
         queviures.map((queviure) => (
-          <li class="pt-1 pb-0.5 border-b border-gray-700">
+          <li class="my-1 border-b border-gray-700">
             <Queviure nom={queviure.nom} />
           </li>
         ))
@@ -27,7 +27,7 @@ const queviures = await getAllQueviures();
       method="POST"
       class="w-full flex flex-row justify-between"
     >
-      <label class="flex flex-row gap-2 w-fit">
+      <label>
         <input
           type="text"
           minlength="1"
@@ -37,9 +37,9 @@ const queviures = await getAllQueviures();
           class="text-gray-900 bg-gray-300 px-1"
         />
       </label>
-      <button type="submit" class="text-green-300"
-        ><PlusSquare class="size-8" /></button
-      >
+      <button type="submit" class="text-green-300">
+        <PlusSquare class="size-8" />
+      </button>
     </form>
   </main>
 </Base>
