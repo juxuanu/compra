@@ -12,13 +12,7 @@ const { nom } = Astro.props;
   <span>{nom}</span>
   <form action={actions.borraQueviure} method="POST">
     <label>
-      <input
-        hidden
-        name="nom"
-        required
-        autocapitalize="sentences"
-        value={nom}
-      />
+      <input hidden name="nom" required value={nom} />
     </label>
     <button
       type="submit"
