@@ -2,7 +2,8 @@ import { integer, sqliteTable, text, check } from "drizzle-orm/sqlite-core";
 import { sql } from "drizzle-orm";
 
 export const queviuresTable = sqliteTable("queviures", {
-  nom: text("nom").primaryKey().notNull(),
+  id: text("id").primaryKey().notNull(),
+  nom: text("nom").notNull(),
   dataCreacio: integer("data_creacio", { mode: "timestamp_ms" })
     .notNull()
     .default(sql`(unixepoch() * 1000)`),

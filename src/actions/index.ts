@@ -13,7 +13,9 @@ export const server = {
       nom: z.string().trim().min(1),
     }),
     handler: async ({ nom }) => {
-      await putQueviure({ nom, comprat: null });
+      await putQueviure({ nom, comprat: null }).catch((err) =>
+        console.log(err),
+      );
     },
   }),
 
