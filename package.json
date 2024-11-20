@@ -14,17 +14,17 @@
     "@astrojs/cloudflare": "^11.2.0",
     "@astrojs/tailwind": "^5.1.2",
     "@libsql/client": "^0.14.0",
-    "astro": "^4.16.7",
-    "drizzle-orm": "^0.35.3",
-    "lucide-astro": "^0.453.0",
-    "tailwindcss": "^3.4.14",
+    "astro": "^4.16.13",
+    "drizzle-orm": "^0.36.3",
+    "lucide-astro": "^0.460.0",
+    "tailwindcss": "^3.4.15",
     "typescript": "^5.6.3"
   },
   "packageManager": "pnpm@9.14.2+sha512.6e2baf77d06b9362294152c851c4f278ede37ab1eba3a55fda317a4a17b209f4dbb973fb250a77abc463a341fcb1f17f17cfa24091c4eb319cda0d9b84278387",
   "devDependencies": {
-    "drizzle-kit": "^0.26.2",
+    "@types/node": "^22.9.1",
+    "drizzle-kit": "^0.28.1",
     "prettier": "^3.3.3",
-    "prettier-plugin-astro": "^0.14.1",
-    "@types/node": "^22.8.1"
+    "prettier-plugin-astro": "^0.14.1"
   }
 }

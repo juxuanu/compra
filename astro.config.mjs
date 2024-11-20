@@ -12,11 +12,6 @@ export default defineConfig({
   adapter: cloudflare({
     imageService: "passthrough",
   }),
-  vite: {
-    define: {
-      "process.env": process.env,
-    },
-  },
   devToolbar: {
     enabled: false,
   },

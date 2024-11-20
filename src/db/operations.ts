@@ -19,10 +19,18 @@ export async function putQueviure(queviure: QueviuresInsert): Promise<void> {
       set: {
         nom: queviure.nom,
         dataCreacio: queviure.dataCreacio ?? new Date(),
+        comprat: queviure.comprat,
       },
     });
 }
 
 export async function borraQueviure(nom: string) {
   await db.delete(queviuresTable).where(eq(queviuresTable.nom, nom));
+}
+
+export async function updateQueviure(
+  nom: string,
+  data: Omit<QueviuresInsert, "nom">,
+) {
+  await db.update(queviuresTable).set(data).where(eq(queviuresTable.nom, nom));
 }

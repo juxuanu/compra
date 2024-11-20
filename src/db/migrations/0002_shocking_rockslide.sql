@@ -1,0 +1,1 @@
+ALTER TABLE `queviures` ADD `comprat` integer;

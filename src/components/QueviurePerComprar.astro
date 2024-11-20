@@ -1,5 +1,5 @@
 ---
-import { ListX } from "lucide-astro";
+import { CheckCircle2 } from "lucide-astro";
 import { actions } from "astro:actions";
 
 interface Props {
@@ -10,12 +10,12 @@ const { nom } = Astro.props;
 
 <div class="w-full h-fit flex flex-row justify-between">
   <span>{nom}</span>
-  <form action={actions.borraQueviure} method="POST">
+  <form action={actions.compraQueviure} method="POST">
     <label>
       <input hidden name="nom" required value={nom} />
     </label>
-    <button type="submit" class="text-red-500 my-auto">
-      <ListX class="size-8 stroke-1" />
+    <button type="submit" class="text-green-500 my-auto">
+      <CheckCircle2 class="size-8 stroke-1" />
     </button>
   </form>
 </div>

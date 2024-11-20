@@ -1,6 +1,10 @@
 import { defineAction } from "astro:actions";
 import { z } from "astro:schema";
-import { borraQueviure, putQueviure } from "../db/operations.ts";
+import {
+  borraQueviure,
+  putQueviure,
+  updateQueviure,
+} from "../db/operations.ts";
 
 export const server = {
   desaQueviure: defineAction({
@@ -8,8 +12,8 @@ export const server = {
     input: z.object({
       nom: z.string().trim().min(1),
     }),
-    handler: async (input) => {
-      await putQueviure(input);
+    handler: async ({ nom }) => {
+      await putQueviure({ nom, comprat: null });
     },
   }),
 
@@ -20,6 +24,26 @@ export const server = {
     }),
     handler: async (input) => {
       await borraQueviure(input.nom);
+    },
+  }),
+
+  compraQueviure: defineAction({
+    accept: "form",
+    input: z.object({
+      nom: z.string().min(1),
+    }),
+    handler: async (input) => {
+      await updateQueviure(input.nom, { comprat: new Date() });
+    },
+  }),
+
+  faltaQueviure: defineAction({
+    accept: "form",
+    input: z.object({
+      nom: z.string().min(1),
+    }),
+    handler: async (input) => {
+      await updateQueviure(input.nom, { comprat: null });
     },
   }),
 };

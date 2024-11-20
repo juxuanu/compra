@@ -1,0 +1,29 @@
+---
+import { ShoppingCart, MinusCircle } from "lucide-astro";
+import { actions } from "astro:actions";
+
+interface Props {
+  nom: string;
+}
+const { nom } = Astro.props;
+---
+
+<div class="w-full h-fit flex flex-row gap-4 justify-between">
+  <span class="text-opacity-75 mr-auto">{nom}</span>
+  <form action={actions.borraQueviure} method="POST">
+    <label>
+      <input hidden name="nom" required value={nom} />
+    </label>
+    <button type="submit" class="text-red-500 my-auto">
+      <MinusCircle class="size-8 stroke-1" />
+    </button>
+  </form>
+  <form action={actions.faltaQueviure} method="POST">
+    <label>
+      <input hidden name="nom" required value={nom} />
+    </label>
+    <button type="submit" class="text-blue-500 my-auto">
+      <ShoppingCart class="size-8 stroke-1" />
+    </button>
+  </form>
+</div>

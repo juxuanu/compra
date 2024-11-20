@@ -2,22 +2,31 @@
 import Base from "../layouts/Base.astro";
 import { getAllQueviures } from "../db/operations";
 import { actions } from "astro:actions";
-import Queviure from "../components/Queviure.astro";
-import { ListPlus } from "lucide-astro";
+import QueviurePerComprar from "../components/QueviurePerComprar.astro";
+import QueviureComprat from "../components/QueviureComprat.astro";
+import { PlusCircle } from "lucide-astro";
 
 const queviures = await getAllQueviures();
+const queviuresComprats = [];
+const queviuresPerComprar = [];
+for (const queviure of queviures) {
+  if (queviure.comprat) queviuresComprats.push(queviure);
+  else queviuresPerComprar.push(queviure);
+}
+queviuresComprats.sort((a, b) => a.comprat!.getTime() - b.comprat!.getTime());
 ---
 
 <Base>
-  <h1 class="text-lg font-bold mt-2 mb-4 w-full text-center uppercase">
+  <h1 class="text-xl font-bold mt-2 mb-4 w-full text-center uppercase">
     Cuqui compra
   </h1>
   <main class="text-xl">
+    <h2 class="mt-2 mb-4 w-full text-left uppercase font-light">Per comprar</h2>
     <ul class="flex flex-col mb-1">
       {
-        queviures.map((queviure) => (
+        queviuresPerComprar.map((queviure) => (
           <li class="my-1 border-b border-gray-700">
-            <Queviure nom={queviure.nom} />
+            <QueviurePerComprar nom={queviure.nom} />
           </li>
         ))
       }
@@ -37,9 +46,21 @@ const queviures = await getAllQueviures();
           class="text-gray-900 bg-gray-300 px-1 h-full w-full rounded-sm"
         />
       </label>
-      <button type="submit" id="add-queviure" class="text-green-300">
-        <ListPlus class="size-8 stroke-1" />
+      <button type="submit" id="add-queviure" class="text-blue-500">
+        <PlusCircle class="size-8 stroke-1" />
       </button>
     </form>
+    {queviuresComprats.length > 0 &&
+        <h2 class="mb-4 mt-10 w-full text-left uppercase font-light">Anteriors</h2>
+        <ul class="flex flex-col mb-4">
+          {
+            queviuresComprats.map((queviure) => (
+                <li class="my-1 border-b border-gray-700">
+                  <QueviureComprat nom={queviure.nom} />
+                </li>
+            ))
+          }
+        </ul>
+    }
   </main>
 </Base>
