@@ -16,3 +16,14 @@ import "../styles/global.css";
     <slot />
   </body>
 </html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const scrollPosition = localStorage.getItem("scrollpos");
+    if (scrollPosition) window.scrollTo(0, +scrollPosition);
+  });
+
+  window.onbeforeunload = function (e) {
+    localStorage.setItem("scrollpos", window.scrollY.toString());
+  };
+</script>
