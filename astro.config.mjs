@@ -1,13 +1,10 @@
 // @ts-check
 import { defineConfig, envField } from "astro/config";
-
-import tailwind from "@astrojs/tailwind";
-
 import cloudflare from "@astrojs/cloudflare";
+import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [tailwind()],
   output: "server",
   adapter: cloudflare({
     imageService: "passthrough",
@@ -15,18 +12,19 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
-  experimental: {
-    env: {
-      schema: {
-        TURSO_DATABASE_URL: envField.string({
-          context: "server",
-          access: "secret",
-        }),
-        TURSO_AUTH_TOKEN: envField.string({
-          context: "server",
-          access: "secret",
-        }),
-      },
+  env: {
+    schema: {
+      TURSO_DATABASE_URL: envField.string({
+        context: "server",
+        access: "secret",
+      }),
+      TURSO_AUTH_TOKEN: envField.string({
+        context: "server",
+        access: "secret",
+      }),
     },
+  },
+  vite: {
+    plugins: [tailwindcss()],
   },
 });
