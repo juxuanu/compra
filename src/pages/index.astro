@@ -6,6 +6,12 @@ import QueviurePerComprar from "../components/QueviurePerComprar.astro";
 import QueviureComprat from "../components/QueviureComprat.astro";
 import { PlusCircle } from "lucide-astro";
 
+const desaQueviureResult = Astro.getActionResult(actions.desaQueviure);
+if (desaQueviureResult && !desaQueviureResult.error) {
+  console.info("all good");
+  Astro.redirect("/");
+}
+
 const queviures = await getAllQueviures();
 const queviuresComprats = [];
 const queviuresPerComprar = [];
@@ -47,17 +53,20 @@ queviuresComprats.sort((a, b) => a.comprat!.getTime() - b.comprat!.getTime());
         <PlusCircle class="size-8 stroke-1" />
       </button>
     </form>
+    {desaQueviureResult?.error && (
+      <p class="text-red-500">No s'ha pogut afegir. Error: {desaQueviureResult?.error}</p>
+    )}
     {queviuresComprats.length > 0 &&
-        <h2 class="mb-4 mt-10 w-full text-left uppercase font-light">Anteriors</h2>
+      (<h2 class="mb-4 mt-10 w-full text-left uppercase font-light">Anteriors</h2>
         <ul class="flex flex-col mb-4">
           {
             queviuresComprats.map((queviure) => (
-                <li class="my-1 border-b border-gray-700">
-                  <QueviureComprat nom={queviure.nom} />
-                </li>
+              <li class="my-1 border-b border-gray-700">
+                <QueviureComprat nom={queviure.nom} />
+              </li>
             ))
           }
-        </ul>
+        </ul>)
     }
   </main>
 </Base>
