@@ -7,10 +7,7 @@ import QueviureComprat from "../components/QueviureComprat.astro";
 import { PlusCircle } from "lucide-astro";
 
 const desaQueviureResult = Astro.getActionResult(actions.desaQueviure);
-if (desaQueviureResult && !desaQueviureResult.error) {
-  console.info("all good");
-  Astro.redirect("/");
-}
+if (Astro.params['_action']) delete Astro.params['_action']
 
 const queviures = await getAllQueviures();
 const queviuresComprats = [];
