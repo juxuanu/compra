@@ -18,12 +18,20 @@ import "../styles/global.css";
 </html>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const scrollPosition = localStorage.getItem("scrollpos");
-    if (scrollPosition) window.scrollTo(0, +scrollPosition);
-  });
+  // Desa la posició en enviar qualsevol formulari (beforeunload no és fiable
+  // al mòbil) i la restaura un sol cop en carregar la resposta del POST.
+  const KEY = "scrollpos";
+  try {
+    const scrollPosition = sessionStorage.getItem(KEY);
+    if (scrollPosition !== null) {
+      sessionStorage.removeItem(KEY);
+      window.scrollTo(0, +scrollPosition);
+    }
+  } catch {}
 
-  window.onbeforeunload = function () {
-    localStorage.setItem("scrollpos", window.scrollY.toString());
-  };
+  document.addEventListener("submit", () => {
+    try {
+      sessionStorage.setItem(KEY, window.scrollY.toString());
+    } catch {}
+  });
 </script>
